@@ -45,7 +45,7 @@ Just connect the data pin of the LED strip to GPIO `24` (in the code this is wri
 
 Raspberry Pi 40-pin GPIO layout:
 <img width="2064" height="1185" alt="GPIO Pinout Diagram" src="https://github.com/WhenLifeHandsYouLemons/Magic-Book/blob/main/GPIO-Pinout-Diagram.png" />
-(Taken from: <https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#schematics-and-mechanical-drawings>)
+(Taken from: <https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio>)
 
 ## License
 This project was made by [**Sooraj S**](https://sooraj.dev) and provided for free for anyone to use, modify, and distribute (given it's also under the same license). To know more about the license, please see the [LICENSE](LICENSE) file.
