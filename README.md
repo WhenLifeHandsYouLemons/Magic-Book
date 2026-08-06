@@ -4,10 +4,10 @@ This project was made for the Washington renfaire that I went to in *August 2026
 
 ## Resources
 This project used the following hardware:
-1. Raspberry Pi 3B
-2. Type of LED strip lighting
+1. Raspberry Pi 4B (a Raspberry Pi 3B works just as well, however it requires the LED strip to be powered externally)
+2. 1-metre BTF-Lighting WF2812B IC LED Strip (60 LEDs/m)
 3. 10,000 mAh power bank
-4. Male-to-female, male-to-male, and female-to-female cables
+4. Male-to-female, male-to-male, and female-to-female cables (only 3 male-to-female cables were used, but the other might come in handy if soldering work is needed)
 5. A thick hard-cover book (preferrably leather-like cover to look more like a spell book)
 
 ## Installation
@@ -35,13 +35,16 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-6. Once you've completed the hardware setup, simply run the program with:
+6. Once you've completed the hardware setup, run the program with (this is needed instead of simply running `python magic_book.py` as neopixels needs `sudo` to run but we're using a virtual environment):
 ```
-python magic_book.py
+sudo -E env PATH=$PATH python3 magic_book.p
 ```
 
 ## Hardware Setup
-Just connect the data pin of the LED strip to data pin `18` (in the code this is written as `board.D18`), connect the power and ground pins either to the Raspberry Pi's power and ground pins, or connect them to an external power source!
+Just connect the data pin of the LED strip to GPIO `24` (in the code this is written as `board.D18`), connect the power and ground pins either to the Raspberry Pi's (4B or higher model) power and ground pins, or connect them to an external power source (for a Raspberry Pi 3B or a lower model)!
+
+Raspberry Pi 40-pin GPIO layout:
+
 
 ## License
 This project was made by [**Sooraj S**](https://sooraj.dev) and provided for free for anyone to use, modify, and distribute (given it's also under the same license). To know more about the license, please see the [LICENSE](LICENSE) file.
