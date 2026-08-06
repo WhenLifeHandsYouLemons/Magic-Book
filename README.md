@@ -11,13 +11,16 @@ This project used the following hardware:
 5. A thick hard-cover book (preferrably leather-like cover to look more like a spell book)
 
 ## Installation
-To install the source code:
-1. Clone the repository at <https://github.com/WhenLifeHandsYouLemons/MagicBook.git>.
-2. Install the following packages in `apt`:
+To install the source code and run the program:
+1. Install the following packages in `apt`:
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt install swig build-essential python3-dev python3-setuptools liblgpio-dev
+sudo apt install git swig build-essential python3-dev python3-setuptools liblgpio-dev
+```
+2. Clone the repository at <https://github.com/WhenLifeHandsYouLemons/Magic-Book.git> with:
+```bash
+git clone https://github.com/WhenLifeHandsYouLemons/Magic-Book.git
 ```
 3. Then, create the virtual environment in the project folder:
 ```bash
@@ -32,6 +35,13 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+6. Once you've completed the hardware setup, simply run the program with:
+```
+python magic_book.py
+```
+
+## Hardware Setup
+Just connect the data pin of the LED strip to data pin `18` (in the code this is written as `board.D18`), connect the power and ground pins either to the Raspberry Pi's power and ground pins, or connect them to an external power source!
 
 ## License
-This project was made by Sooraj S and provided for free for anyone to use, modify, and distribute (given it's also under the same license). To know more about the license, please see the LICENSE.md file.
+This project was made by [**Sooraj S**](https://sooraj.dev) and provided for free for anyone to use, modify, and distribute (given it's also under the same license). To know more about the license, please see the [LICENSE](LICENSE) file.
