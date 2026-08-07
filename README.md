@@ -4,7 +4,7 @@ This project was made for the Washington renfaire that I went to in *August 2026
 
 ## Resources
 This project used the following hardware:
-1. Raspberry Pi 4B (a Raspberry Pi 3B works just as well, however it requires the LED strip to be powered externally)
+1. Raspberry Pi 4B (a Raspberry Pi 3B or lower works just as well, however it requires the LED strip to be powered externally)
 2. 1-metre BTF-Lighting WF2812B IC LED Strip (60 LEDs/m)
 3. 10,000 mAh power bank
 4. Male-to-female, male-to-male, and female-to-female cables (only 3 male-to-female cables were used, but the other might come in handy if soldering work is needed)
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ```
 6. Once you've completed the hardware setup, run the program with (this is needed instead of simply running `python magic_book.py` as neopixels needs `sudo` to run but we're using a virtual environment):
 ```
-sudo -E env PATH=$PATH python3 magic_book.p
+sudo -E env PATH=$PATH python3 magic_book.py
 ```
 
 ## Hardware Setup
