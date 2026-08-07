@@ -12,7 +12,7 @@ PIXEL_BRIGHTNESS = 1
 LED_COUNT = 60
 
 powering_up_progress = 0
-powering_up_delay = 0.25
+powering_up_delay = 0.05
 
 power_up_complete = False
 
@@ -50,7 +50,8 @@ print("Powering up...")
 while powering_up_progress < LED_COUNT:
 	# Update LED colour
 	for i in range(powering_up_progress):
-		leds[i].step_power_up()
+		colour = leds[i].step_power_up()
+		pixels[i] = colour
 
 	pixels.show()
 
