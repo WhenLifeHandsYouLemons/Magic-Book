@@ -41,7 +41,7 @@ sudo -E env PATH=$PATH python3 magic_book.p
 ```
 
 ## Hardware Setup
-Just connect the data pin of the LED strip to GPIO `24` (in the code this is written as `board.D18`), connect the power and ground pins either to the Raspberry Pi's (4B or higher model) power and ground pins, or connect them to an external power source (for a Raspberry Pi 3B or a lower model)!
+Just connect the data pin of the LED strip to GPIO `18` (in the code this is written as `board.D12`), connect the power and ground pins either to the Raspberry Pi's (4B or higher model) power and ground pins, or connect them to an external power source (for a Raspberry Pi 3B or a lower model)!
 
 Raspberry Pi 40-pin GPIO layout:
 <img width="2064" height="1185" alt="GPIO Pinout Diagram" src="https://github.com/WhenLifeHandsYouLemons/Magic-Book/blob/main/GPIO-Pinout-Diagram.png" />

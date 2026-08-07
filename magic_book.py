@@ -7,8 +7,8 @@ from LED import LED
 
 #* Setup
 # Constants
-DATA_PIN = board.D18
-PIXEL_BRIGHTNESS = 0.5
+DATA_PIN = board.D12
+PIXEL_BRIGHTNESS = 1
 LED_COUNT = 60
 
 powering_up_progress = 0
@@ -36,6 +36,11 @@ for i in range(LED_COUNT):
 	leds.append(LED(i, pixels[i]))
 
 #* Main loop
+# Debug light-up
+pixels.fill((255, 255, 255))
+pixels.show()
+time.sleep(1)
+
 pixels.fill((0, 0, 0))
 pixels.show()
 time.sleep(2)

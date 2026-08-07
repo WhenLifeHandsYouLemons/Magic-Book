@@ -1,25 +1,28 @@
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
-
 import time
 import board
-import neopixel_spi as neopixel
+import neopixel
 
-NUM_PIXELS = 12
-PIXEL_ORDER = neopixel.GRB
-COLORS = (0xFF0000, 0x00FF00, 0x0000FF)
-DELAY = 0.1
+DATA_PIN = board.D12
+PIXEL_BRIGHTNESS = 1
+LED_COUNT = 60
 
-spi = board.D10
-
-pixels = neopixel.NeoPixel_SPI(
-    spi, NUM_PIXELS, pixel_order=PIXEL_ORDER, auto_write=False
+pixels = neopixel.NeoPixel(
+	DATA_PIN,
+	LED_COUNT,
+	brightness=PIXEL_BRIGHTNESS,
+	auto_write=False,
+	pixel_order=neopixel.GRB
 )
 
 while True:
-    for color in COLORS:
-        for i in range(NUM_PIXELS):
-            pixels[i] = color
-            pixels.show()
-            time.sleep(DELAY)
-            pixels.fill(0)
+	print("On!")
+
+	pixels.fill((255, 255, 255))
+	pixels.show()
+	time.sleep(1)
+
+	print("Off!")
+
+	pixels.fill((0, 0, 0))
+	pixels.show()
+	time.sleep(1)
