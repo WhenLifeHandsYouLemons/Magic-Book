@@ -3,7 +3,8 @@ from random import randint
 import time
 import board
 import neopixel
-from LED import LED
+from LED import *
+from helper_functions import *
 
 #* Setup
 # Constants
@@ -54,6 +55,7 @@ while powering_up_progress < LED_COUNT:
 		pixels[i] = colour
 
 	pixels.show()
+	print_leds(leds)
 
 	powering_up_progress += 1
 	time.sleep(powering_up_delay)

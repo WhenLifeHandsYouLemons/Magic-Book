@@ -1,13 +1,19 @@
 class LED:
-	colour_delta = [0, 0, 25]
-	start_colour = [0, 0, 0]
-	end_colour = [0, 0, 255]
+	COLOUR_DELTA = [0, 0, 25]
+	START_COLOUR = [0, 0, 0]
+	END_COLOUR = [0, 0, 255]
 
 	def __init__(self, pixel_num: int, pixel):
 		self.num = pixel_num
 		self.pixel = pixel
 		self.direction = 1
-		self.colour = self.start_colour
+		self.colour = self.START_COLOUR
+
+	def __repr__(self) -> str:
+		return str(self.colour)
+
+	def __str__(self) -> str:
+		return str(self.colour)
 
 	def step_power_up(self) -> list:
 		"""
@@ -15,22 +21,21 @@ class LED:
 		"""
 		# Increase colour
 		if self.direction == 1:
-			self.colour[0] += self.colour_delta[0]
-			self.colour[1] += self.colour_delta[1]
-			self.colour[2] += self.colour_delta[2]
+			self.colour[0] += self.COLOUR_DELTA[0]
+			self.colour[1] += self.COLOUR_DELTA[1]
+			self.colour[2] += self.COLOUR_DELTA[2]
 		else:
-			self.colour[0] += self.colour_delta[0]
-			self.colour[1] += self.colour_delta[1]
-			self.colour[2] += self.colour_delta[2]
+			self.colour[0] -= self.COLOUR_DELTA[0]
+			self.colour[1] -= self.COLOUR_DELTA[1]
+			self.colour[2] -= self.COLOUR_DELTA[2]
 
 		# Change direction if needed
-		if self.colour >= self.end_colour:
+		if self.colour[0] >= self.END_COLOUR[0] and self.colour[1] >= self.END_COLOUR[1] and self.colour[2] >= self.END_COLOUR[2]:
 			if self.direction == 1:
 				self.direction = -1
 			else:
 				self.direction = 1
 
-		print(self.colour)
 		return self.clamp_colour(self.colour)
 
 	def step_idle(self) -> list:
