@@ -60,6 +60,10 @@ while powering_up_progress < LED_COUNT:
 	powering_up_progress += 1
 	time.sleep(powering_up_delay)
 
+# Set the current LED colours as their default idle value
+for led in leds:
+	led.set_idle_colour()
+
 print("Powered up!")
 # Show power up finish animation
 while not power_up_complete:

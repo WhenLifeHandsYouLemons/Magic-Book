@@ -15,14 +15,22 @@ pixels = neopixel.NeoPixel(
 )
 
 while True:
-	print("On!")
+	for i in range(10):
+		pixels[i] = (0, 0, 0)
 
-	pixels.fill((255, 255, 255))
+	for i in range(10, 20):
+		pixels[i] = (1, 1, 1)
+
+	for i in range(20, 30):
+		pixels[i] = (5, 5, 5)
+
+	for i in range(30, 40):
+		pixels[i] = (10, 10, 10)
+
+	for i in range(40, 50):
+		pixels[i] = (20, 20, 20)
+
+	for i in range(50, 60):
+		pixels[i] = (255, 255, 255)
+
 	pixels.show()
-	time.sleep(1)
-
-	print("Off!")
-
-	pixels.fill((0, 0, 0))
-	pixels.show()
-	time.sleep(1)

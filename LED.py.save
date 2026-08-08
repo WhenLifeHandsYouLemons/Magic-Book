@@ -1,5 +1,5 @@
 class LED:
-	COLOUR_DELTA = [0, 0, 2]
+	COLOUR_DELTA = [0, 0, 25]
 	START_COLOUR = [0, 0, 0]
 	END_COLOUR = [0, 0, 255]
 
@@ -7,11 +7,7 @@ class LED:
 		self.num = pixel_num
 		self.pixel = pixel
 		self.direction = 1
-
 		self.colour = self.START_COLOUR.copy()
-		self.colour[0] += 1
-		self.colour[1] += 1
-		self.colour[2] += 1
 
 	def __repr__(self) -> str:
 		return str(self.colour)
@@ -25,29 +21,13 @@ class LED:
 		"""
 		# Increase colour
 		if self.direction == 1:
-			if self.colour[0] == 0 and self.COLOUR_DELTA[0] != 0:
-				self.colour[0] = 1
-			elif self.colour[1] == 0 and self.COLOUR_DELTA[1] != 0:
-				self.colour[1] = 1
-			elif self.colour[2] == 0 and self.COLOUR_DELTA[2] != 0:
-				self.colour[2] = 1
-			else:
-				self.colour[0] *= self.COLOUR_DELTA[0]
-				self.colour[1] *= self.COLOUR_DELTA[1]
-				self.colour[2] *= self.COLOUR_DELTA[2]
+			self.colour[0] += self.COLOUR_DELTA[0]
+			self.colour[1] += self.COLOUR_DELTA[1]
+			self.colour[2] += self.COLOUR_DELTA[2]
 		else:
-			print("Why is it here")
-			print(self.direction)
-			if self.COLOUR_DELTA[0] != 0:
-				self.colour[0] /= self.COLOUR_DELTA[0]
-			if self.COLOUR_DELTA[1] != 0:
-				self.colour[1] /= self.COLOUR_DELTA[1]
-			if self.COLOUR_DELTA[2] != 0:
-				self.colour[2] /= self.COLOUR_DELTA[2]
-
-		self.colour[0] = round(self.colour[0])
-		self.colour[1] = round(self.colour[1])
-		self.colour[2] = round(self.colour[2])
+			self.colour[0] -= self.COLOUR_DELTA[0]
+			self.colour[1] -= self.COLOUR_DELTA[1]
+			self.colour[2] -= self.COLOUR_DELTA[2]
 
 		# Change direction if needed
 		if (self.colour[0] >= self.END_COLOUR[0] and self.colour[1] >= self.END_COLOUR[1] and self.colour[2] >= self.END_COLOUR[2]) or (self.colour[0] <= self.START_COLOUR[0] and self.colour[1] <= self.START_COLOUR[1] and self.colour[2] <= self.START_COLOUR[2]):
@@ -62,8 +42,12 @@ class LED:
 		"""
 		Changes the LED's colour of a pulsing animation by one step. Doesn't update the physical LED's colour, only the stored variable.
 		"""
+		if self.direction == 1:
+			continue
+		else:
+			
 
-		return []
+		return self.clamp_colour(self.colour)
 
 	def set_idle_colour(self) -> None:
 		self.IDLE_COLOUR = self.colour
